@@ -1,2 +1,2 @@
-User.create(username: "dsfa")
+User.create(username: "dsfa", password: "hshs")
 Brief.create(brief: "asdfasd")
