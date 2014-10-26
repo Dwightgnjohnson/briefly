@@ -1,1 +1,18 @@
 <h1>Briefs#index</h1>
+
+<p>Hi <%= @current_user.username %></p>
+
+<%= form_for @brief, url: post_brief_path do |f| %>
+  <%= f.text_area :brief %>
+  <%= f.submit %>
+<%end%>
+
+<ul>
+  <% @briefs.each do |x| %>
+  <li>
+    <%= x.brief %>
+    <%= time_ago_in_words x.created_at %> ago by <%= x.user.username %>
+  </li>
+
+</ul>
+<%end%>
