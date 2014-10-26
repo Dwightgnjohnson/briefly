@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :username
       t.string :password
+      t.boolean :follow, default: false
 
       t.timestamps
     end

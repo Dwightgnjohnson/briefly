@@ -7,8 +7,6 @@ class BriefsController < ApplicationController
     end
   end
 
-
-
   def index
     @users = User.all
     @briefs = current_user.briefs.order("created_at desc")

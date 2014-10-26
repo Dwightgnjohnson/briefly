@@ -17,13 +17,18 @@
 <%end%>
 </ul>
 </div>
+
+
+
 <div class="col-md-8 bg-primary">
-<h3>following</h3>
-<% @users.each do |x| %>
-  <%= x.username%>
-  <% x.briefs.each do |y| %>
-    <ul><li><%= y.brief %></li></ul>
+<h3>All Briefs</h3>
+  <% @users.each do |x| %>
+    <% if x.follow == true %>
+        <% x.briefs.each do |y| %>
+        <br>
+        <%= x.username%> | <%= y.brief %>
+        <%end%>
+    <%end%>
   <%end%>
-  <hr>
-<%end%>
+
 </div>
