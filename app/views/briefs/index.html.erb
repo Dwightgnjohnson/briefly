@@ -1,5 +1,6 @@
 <h1>Briefs#index</h1>
 
+<div class="col-md-4">
 <p>Hi <%= @current_user.username %></p>
 
 <%= form_for @brief, url: post_brief_path do |f| %>
@@ -13,6 +14,16 @@
     <%= x.brief %>
     <%= time_ago_in_words x.created_at %> ago by <%= x.user.username %>
   </li>
-
-</ul>
 <%end%>
+</ul>
+</div>
+<div class="col-md-8 bg-primary">
+<h3>following</h3>
+<% @users.each do |x| %>
+  <%= x.username%>
+  <% x.briefs.each do |y| %>
+    <ul><li><%= y.brief %></li></ul>
+  <%end%>
+  <hr>
+<%end%>
+</div>

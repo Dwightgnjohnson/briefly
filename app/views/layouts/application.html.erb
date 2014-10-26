@@ -2,20 +2,36 @@
 <html>
 <head>
   <title>Briefly</title>
+  <!-- Latest compiled and minified CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 <%= link_to "Home", root_path %>
 <% if @current_user %>
     <%= link_to "Sign Out", sign_out_path, method: :delete %>
   <% end %>
-
+<div class="row">
 <%= yield %>
+</div>
+
 <hr/>
+<em>All Users:</em>
 <% User.all.each do |user| %>
     <%= link_to user.username, profile_path(username: user.username) %>
 <%end%>
+</div>
 </body>
 </html>
