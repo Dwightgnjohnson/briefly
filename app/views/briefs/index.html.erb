@@ -1,6 +1,6 @@
 <h1>Briefs#index</h1>
 
-<div class="col-md-4">
+<div class="col-md-4" style="">
 <p>Hi <%= @current_user.username %></p>
 
 <%= form_for @brief, url: post_brief_path do |f| %>
@@ -18,17 +18,39 @@
 </ul>
 </div>
 
-
-
-<div class="col-md-8 bg-primary">
-<h3>All Briefs</h3>
-  <% @users.each do |x| %>
-    <% if x.follow == true %>
-        <% x.briefs.each do |y| %>
-        <br>
-        <%= x.username%> | <%= y.brief %>
-        <%end%>
+<div class="col-md-8 bg-success ">
+  <% @users.each do |user| %>
+    <% user.friendships.each do |friendship| %>
+      <% if friendship.user_id == @current_user.id %>
+        <% friendship.friend_id %>
+      <%end%>
     <%end%>
   <%end%>
+</div>
 
+
+<div class="col-md-8 bg-primary pull-right">
+<h3>Friendships:</h3>
+  <% @friendships.each do |x| %>
+    <em>User ID:</em> <%= x.user_id %> | <em>Friend ID:</em> <%= x.friend_id %> | <%= time_ago_in_words x.followed_at %> ago
+    <hr>
+  <%end%>
+</div>
+
+<div class="col-md-8 bg-success pull-right ">
+    <% @friendships.each do |x| %>
+      <%= x.user.each do |y| %>
+
+      <%end%>
+    <%end%>
+      <br>
+
+</div>
+
+<div class="col-md-8 bg-info pull-right">
+<h3>All Briefs:</h3>
+  <% @allbriefs.each do |x| %>
+    <strong><%= x.user.username.upcase %></strong>: <%=x.brief%>
+    <hr>
+  <%end%>
 </div>

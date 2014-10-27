@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "signup" => "sessions#signup", as: :signup
   post "signup" => "sessions#create_user", as: :create_user
 
-get "users/:username" => "profiles#show", as: "profile"
+  get "users/:username" => "profiles#show", as: "profile"
+
+  post "follow" => "briefs#follow"
+
 
 end

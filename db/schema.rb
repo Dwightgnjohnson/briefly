@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20141026195743) do
     t.datetime "updated_at"
   end
 
-  create_table "firendships", force: true do |t|
+  create_table "friendships", force: true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
+    t.datetime "followed_at"
+    t.datetime "unfollowed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +32,6 @@ ActiveRecord::Schema.define(version: 20141026195743) do
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password"
-    t.boolean  "follow",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -12,6 +12,7 @@ class BriefsController < ApplicationController
     @briefs = current_user.briefs.order("created_at desc")
     @brief = Brief.new
     @allbriefs = Brief.all
+    @friendships = Friendship.all
   end
 
   def post
