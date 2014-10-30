@@ -1,7 +1,5 @@
-
-
 10.times do
-User.create(username: Faker::Commerce.color, password: "z")
+  User.create(username: Faker::Commerce.color, password: "z")
 end
 
 Friendship.create(user_id: 1, friend_id:5, followed_at:DateTime.now)

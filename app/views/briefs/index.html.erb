@@ -31,26 +31,12 @@
 
 <div class="col-md-8 bg-primary pull-right">
 <h3>Friendships:</h3>
-  <% @friendships.each do |x| %>
-    <em>User ID:</em> <%= x.user_id %> | <em>Friend ID:</em> <%= x.friend_id %> | <%= time_ago_in_words x.followed_at %> ago
-    <hr>
-  <%end%>
-</div>
 
-<div class="col-md-8 bg-success pull-right ">
-    <% @friendships.each do |x| %>
-      <%= x.user.each do |y| %>
-
-      <%end%>
+  <% Friendship.all.each do |i| %>
+    <% i.friend.timeline.each do |x| %><br>
+      <strong><%= x.user.username %></strong>: <%= x.brief %>
+      <hr>
     <%end%>
-      <br>
-
-</div>
-
-<div class="col-md-8 bg-info pull-right">
-<h3>All Briefs:</h3>
-  <% @allbriefs.each do |x| %>
-    <strong><%= x.user.username.upcase %></strong>: <%=x.brief%>
-    <hr>
   <%end%>
+
 </div>
