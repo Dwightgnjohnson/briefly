@@ -15,11 +15,15 @@ class User < ActiveRecord::Base
   end
 
   def follow_username
-    
+
   end
 
-  def follow(other_user)
-    friendship.create! user_id: id, friend_id: other_user.id
-  end
+  # def follow(other_user)
+  #   friendship.create! user_id: id, friend_id:other_user.id
+  # end
+  #
+  # def unfollow(other_user)
+  #   friendship.destroy! user_id: id, friend_id:other_user.id
+  # end
 
 end
