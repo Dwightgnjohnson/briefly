@@ -18,7 +18,7 @@
 </ul>
 </div>
 
-<div class="col-md-8 bg-success ">
+<div class="col-md-8 col-sm-12 bg-success ">
   <% @users.each do |user| %>
     <% user.friendships.each do |friendship| %>
       <% if friendship.user_id == @current_user.id %>
@@ -29,14 +29,12 @@
 </div>
 
 
-<div class="col-md-8 bg-primary pull-right">
-<h3>Friendships:</h3>
-
+<div class="col-md-8 col-sm-12 bg-primary">
+<h3>Friendships:::</h3>
   <% Friendship.all.each do |i| %>
-    <% i.friend.timeline.each do |x| %><br>
-      <strong><%= x.user.username %></strong>: <%= x.brief %>
-      <hr>
+  <%= i.friend.username %>
+    <% i.user.timeline.each do |x| %>
+      <%= x.brief %><hr>
     <%end%>
   <%end%>
-
 </div>
